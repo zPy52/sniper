@@ -42,11 +42,11 @@ def main():
     df = format_df(df)
 
     capital = 100
-    eth = 0
+    asset = 0
 
-    eth = round(capital / df.iloc[0]['close'], 8)
+    asset = round(capital / df.iloc[0]['close'], 8)
 
-    capital = round(eth * df.iloc[len(df) - 1]['close'], 2)
+    capital = round(asset * df.iloc[len(df) - 1]['close'], 2)
 
     print(f'--- RESULTS (RSI-FIB SNIPER: {crypto.upper()} - {timeframe}) ---')
 
@@ -81,7 +81,7 @@ def main():
 
         # If there is not enough size on the impulse, don't continue.
         if len(lows) < 5:
-            return -1
+            return -1.0
 
         # Get the lowest low in the impulse.
         lowest_low = last_sessions.iloc[lows[min(lows.keys())]]['low']
